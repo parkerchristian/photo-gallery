@@ -1,0 +1,31 @@
+const test = QUnit.test;
+
+QUnit.module('testing populating objects within an array using HTML');
+
+const image = {
+    title: 'UniWhal',
+    url: 'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'
+};
+
+
+test('first test', assert => {
+    // arrange
+    const expected = `
+        <li>
+        UniWhal
+        <img src="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" alt="UniWhal Picture">
+        </li>
+        `;
+    // act
+    function createHtmlElement() {
+        return `
+        <li>
+        UniWhal
+        <img src="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" alt="UniWhal Picture">
+        </li>
+        `;
+    }
+    const result = createHtmlElement(image);
+    // assert
+    assert.equal(result, expected);
+});
