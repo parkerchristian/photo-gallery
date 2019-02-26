@@ -1,10 +1,12 @@
-function createHtmlElement(image) {
-    return `
-        <li>
+function makeHtmlTemplate(image) {
+    const template = document.createElement('template');
+    template.innerHTML = `
+    <li>
         ${image.title}
         <img src="${image.url}">
-        </li>
-        `;
+    </li>
+    `;
+    return template.content;
 }
 
-export default createHtmlElement;
+export default makeHtmlTemplate;
